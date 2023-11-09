@@ -1,0 +1,18 @@
+    .cuenta {
+        background-color: rgb(237, 240, 239);
+        text-align: center;
+        height: fit-content;
+    }
+    
+    .btn-secondary {
+        margin: auto;
+        margin-top: 10px;
+    }
+    
+    .btn-primary {
+        margin: 10px;
+    }
+    
+    p {
+        padding: 5px;
+    }

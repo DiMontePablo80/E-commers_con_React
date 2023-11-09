@@ -1,13 +1,34 @@
-
+import{BrowserRouter,Routes,Route} from "react-router-dom"
 import './App.css'
-import Barra_Nav from './componentes/navBar/Barra_Nav'
+import BarraNav from './componentes/navBar/BarraNav'
 import ItemListContainer from './componentes/itemListContainer/ItemListContainer'
+import ItemDetailContainer from './componentes/itemDetailContainer/ItemDetailContainer'
+import Acerca from './componentes/acerca/Acerca'
+import Ubicacion from './componentes/ubicacion/Ubicacion'
+
+
+
 function App() {
+
+ 
 
   return (
     <>
-      <Barra_Nav/>
-      <ItemListContainer mensaje ={"Bienvenidos. Conozcan nuestro catalogo con el mejor lino importado. "}/>
+
+      <BrowserRouter>
+          <BarraNav/>
+
+          <Routes>
+
+            <Route path='/' element={<div className='tarjetaProductos'><ItemListContainer/></div>}/>
+            <Route path='/:categoria' element={<div className='tarjetaProductos'><ItemListContainer/></div>}/>
+            <Route path='/Item/:prodId' element={<div className='tarjetaProductos'><ItemDetailContainer/></div>}/> 
+            <Route path='/Acerca' element={<Acerca/>}/>
+            <Route path='/Ubicacion' element={<Ubicacion/>}/>
+            
+          </Routes>   
+        
+        </BrowserRouter>
     </>
     
     

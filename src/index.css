@@ -1,0 +1,7 @@
+.navbar-nav {
+    width: 90%;
+}
+
+div.container {
+    min-width: -webkit-fill-available;
+}

@@ -1,0 +1,13 @@
+.apagado {
+    width: 300px;
+    height: 300px;
+    background-color: blue;
+    border-radius: 50%;
+}
+
+.encendido {
+    width: 300px;
+    height: 300px;
+    background-color: red;
+    border-radius: 50%;
+}
