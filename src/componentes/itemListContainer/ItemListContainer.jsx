@@ -1,5 +1,5 @@
 import { useEffect,useState } from "react";
-import ItemList from "../itemList/ItemList";
+import ItemList from '../itemList/ItemList'
 import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
@@ -12,7 +12,7 @@ const ItemListContainer = () => {
         .then((res)=> res.json())
         .then((res)=>{
             if(categoria){
-                const filtrado= res.filter((productos)=>productos.categoria==categoria)
+                const filtrado= res.filter((productos)=>productos.categoria===categoria)
                 setlistaProductos(filtrado)
             }
             else{
@@ -28,13 +28,11 @@ const ItemListContainer = () => {
     return (
         <div>
             {
-            listaProductos.length==0?
-                <p>no hay el producto que estas buscando</p>
+            listaProductos.length?<ItemList productos={listaProductos}/>
+            :
+            <p>no hay el producto que estas buscando</p>
                 
             
-            :listaProductos.map((productos)=>
-                <ItemList key={productos.id} producto={productos}/>
-            )
             }
             
         </div>
