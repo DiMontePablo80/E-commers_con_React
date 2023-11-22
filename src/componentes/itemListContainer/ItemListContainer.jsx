@@ -2,6 +2,7 @@ import { useEffect,useState } from "react";
 import ItemList from '../itemList/ItemList'
 import { useParams } from "react-router-dom";
 
+
 const ItemListContainer = () => {
 
     const [listaProductos,setlistaProductos]= useState([])
@@ -27,8 +28,10 @@ const ItemListContainer = () => {
 
     return (
         <div>
+            
             {
             listaProductos.length?<ItemList productos={listaProductos}/>
+            
             :
             <p>no hay el producto que estas buscando</p>
                 

@@ -1,0 +1,16 @@
+.tarjetaCarrito div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: first baseline;
+    padding: 10px;
+}
+
+.cuerpo {
+    display: flex;
+    display: -webkit-box;
+}
+
+.total {
+    text-align: center;
+}

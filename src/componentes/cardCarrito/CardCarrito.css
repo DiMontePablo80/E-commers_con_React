@@ -1,0 +1,13 @@
+.estiloCard div {
+    display: flex;
+    display: contents;
+}
+
+.cuerpo {
+    margin: 1rem;
+}
+
+.totalProducto {
+    font-weight: bolder;
+    display: contents;
+}

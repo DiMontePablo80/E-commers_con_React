@@ -1,11 +1,20 @@
 /* eslint-disable react/prop-types */
+import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ItemCount from '../itemCount/ItemCount';
+import { useState,useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 
 const ItemDescription = ({producto}) => {
+    const[cantidad,setcantidad]=useState(0)
+    const{addToCard,estaEnCarrito }=useContext(CartContext)
 
-    const onAdd=(contador)=>{
-        alert("se agrego "+  contador +" unidades de "+ producto.nombre)
+    const onAdd=(sumador)=>{
+        setcantidad(sumador)
+        addToCard(producto,sumador)
+        estaEnCarrito(producto.id)
+        
     }
 
     return (
@@ -17,7 +26,11 @@ const ItemDescription = ({producto}) => {
                     <Card.Text>{producto.descripcion}</Card.Text>
                     <Card.Text>Precio:${producto.precio}</Card.Text>
                     <hr />
-                    <ItemCount inicial={1} cantidad={producto.stock} onAdd={onAdd} />
+                    {cantidad==0 ?<ItemCount inicial={1} cantidad={producto.stock} onAdd={onAdd} />
+                    :
+                    <Link to={'/'}><Button>Seguir comprando</Button></Link>
+                    }
+                    
                     
                 </Card.Body>
             </Card>

@@ -10,7 +10,7 @@ function Item({producto}) {
       <Card.Img variant="top" src={producto.img} />
       <Card.Body>
         <Card.Title>{producto.nombre}</Card.Title>
-        <hr />
+        <hr/>
         <Link to={`/item/${producto.id}`}><Button variant="secondary">ver detalle</Button></Link>
       </Card.Body>
     </Card>

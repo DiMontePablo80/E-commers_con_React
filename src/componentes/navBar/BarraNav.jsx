@@ -30,7 +30,7 @@ function BarraNav() {
             </NavDropdown>
             
           </Nav>
-          <ModalCarrito/>            
+          <Link to={"/"}>< ModalCarrito className="estiloLI"/></Link>   
         </Navbar.Collapse>
       </Container>
     </Navbar>
