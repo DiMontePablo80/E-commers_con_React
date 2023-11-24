@@ -32,19 +32,17 @@ function ModalCarrito() {
         <hr />
         <p className='total'><h3>Total compra: $ {calcularTotal()}</h3></p>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cerrar
+          <Button variant="success" onClick={handleClose}>
+            Finalizar Compra
           </Button>
           <Button variant="primary" onClick={handleClose}>
             Seguir Comprando
           </Button>
-          <Button variant='secondary'onClick={vaciarCarro}>Vaciar Carrito</Button>
+          <Button variant='danger'onClick={vaciarCarro}>Vaciar Carrito</Button>
           <hr/>          
         </Modal.Footer>
       </Modal>
-      </div>   
-
-      
+      </div>      
       </>
   );
 }

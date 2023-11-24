@@ -28,9 +28,8 @@ export const CartProvider=({children})=>{
         return cantProd
     }
     const eliminarProducto=(productoEliminar)=>{
-        let indice = carro.findIndex(prod => prod.id == productoEliminar)
-        carro.splice(indice, 1)
-        setcarro(carro)
+        let carritoFiltrado = carro.filter((prod => prod.producto.id !== productoEliminar))
+        setcarro(carritoFiltrado)
     }
     const calcularTotal=()=> {
             return carro.reduce((acumulador, producto) => acumulador + producto.producto.precio * producto.cantidad, 0)

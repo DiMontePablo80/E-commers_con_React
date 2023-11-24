@@ -1,0 +1,15 @@
+.spinner {
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(50%, 50%);
+    transform: translate(50%, 50%);
+}
+
+.spinnerReactstrap {
+    width: 50px !important;
+    height: 50px !important;
+    border: 10px solid currentColor !important;
+    border-right-color: transparent !important;
+}

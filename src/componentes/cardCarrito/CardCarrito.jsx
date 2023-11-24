@@ -19,7 +19,7 @@ function CardCarrito({producto}) {
         <hr/>
         <Card.Text className='totalProducto'>total: {producto.producto.precio * producto.cantidad}</Card.Text>
       </Card.Body>
-      <Button onClick={()=>eliminarProducto(producto.id)} >quitar</Button>
+      <Button variant='danger'onClick={()=>eliminarProducto(producto.producto.id)} >quitar</Button>
     </Card>
   );
 }
