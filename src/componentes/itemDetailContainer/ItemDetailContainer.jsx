@@ -2,20 +2,23 @@
 import { useState,useEffect } from "react";
 import ItemDescription from "../itemDescription/ItemDescription";
 import { useParams } from "react-router-dom";
+import {getFirestore,doc,getDoc}from 'firebase/firestore';
+
 
 const ItemDetailContainer = () => {
     const [producto,setProducto]=useState(null)
     const{prodId}=useParams()
 
     useEffect(()=>{
-        fetch('/simuladorAPI.json')
-        .then((respuesta)=>respuesta.json())
-        .then((respuesta)=>{
-            const found =respuesta.find((item)=>item.id==prodId)
-            setProducto(found)
+        const db = getFirestore()
+        const productoDetail= doc(db,"productos",prodId)
+        getDoc(productoDetail).then((res)=>{
+            const data= res.data()
+            const detalleProd={id:res.id,...data}
+            setProducto(detalleProd)
         })
-
         .catch((error)=>console.log(error))
+
     },[prodId])
     return (
         <div>

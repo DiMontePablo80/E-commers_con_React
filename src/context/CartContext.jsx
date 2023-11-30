@@ -8,7 +8,6 @@ export const CartProvider=({children})=>{
     //estado global del contexto
     const[carro,setcarro]=useState([])
     
-    // funcionalidades del contexto
 
     const addToCard=(producto,cantidad)=>{
         if(!estaEnCarrito(producto.id)){

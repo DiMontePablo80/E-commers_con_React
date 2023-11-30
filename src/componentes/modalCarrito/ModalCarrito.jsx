@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import CartWidget from '../cartWidget/CartWidget';
@@ -33,11 +34,11 @@ function ModalCarrito() {
         <p className='total'><h3>Total compra: $ {calcularTotal()}</h3></p>
         <Modal.Footer>
           <Button variant="success" onClick={handleClose}>
-            Finalizar Compra
+            Continuar comprando
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Seguir Comprando
-          </Button>
+          <Link to={'/checkout'}><Button variant="primary" onClick={handleClose}>
+            Finalizar compra
+          </Button></Link>
           <Button variant='danger'onClick={vaciarCarro}>Vaciar Carrito</Button>
           <hr/>          
         </Modal.Footer>

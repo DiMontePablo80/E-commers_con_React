@@ -9,7 +9,7 @@ const Carrito = () => {
         <>
             {
             carro.length? carro.map((prod)=>
-                <CardCarrito key={prod.id} producto={prod}/>
+                <CardCarrito key={prod.producto.id} producto={prod}/>
             )
             :
             <p>No hay productos en el carrito</p>

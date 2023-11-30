@@ -3,33 +3,31 @@ import './itemListContainer.css';
 import ItemList from '../itemList/ItemList'
 import { useParams } from "react-router-dom";
 import {Spinner} from 'reactstrap'
-
+import {getFirestore,collection,getDocs,query,where} from 'firebase/firestore'
 const ItemListContainer = () => {
 
     const [listaProductos, setlistaProductos] = useState([])
     const [loading, setLoading] = useState(true)
     const { categoria } = useParams()
-
+    
     useEffect(() => {
-        setTimeout(() => {
-            setLoading(true)
-            fetch('/simuladorAPI.json') 
-            .then((res) => res.json())
-            .then((res) => {
-                if (categoria) {
-                    const filtrado = res.filter((productos) => productos.categoria === categoria)
-                    setlistaProductos(filtrado)
-                }
-                else {
-                    setlistaProductos(res)
-                }
+        setLoading(true)
+        // se instancia base de datos
+        const db = getFirestore()
+        //filtrado de los productos
+        const filtro=categoria ? query (collection(db,"productos"),where("categoria","==",categoria))
+        : collection(db,"productos")
+        //generocion de productos filtrados
+        getDocs(filtro)
+        .then((res)=>{
+            const listaDb = res.docs.map((p)=>{
+                return {id:p.id,...p.data()}
             })
-            .catch((error) => console.log(error))
-            .finally(() => setLoading(false))
-        },1500)
+            setlistaProductos(listaDb)
 
-
-            
+        })
+        .catch((error)=> console.log(error))
+        .finally(setLoading(false))
 
     }, [categoria])
 

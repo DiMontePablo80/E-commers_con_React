@@ -6,12 +6,12 @@ import ItemDetailContainer from './componentes/itemDetailContainer/ItemDetailCon
 import Acerca from './componentes/acerca/Acerca'
 import Ubicacion from './componentes/ubicacion/Ubicacion'
 import {CartProvider} from "./context/CartContext"
-
+import Checkout from "./componentes/checkout/Checkout"
 
 
 function App() {
-
-
+  
+ 
 
   return (
     <>
@@ -27,6 +27,7 @@ function App() {
             <Route path='/Item/:prodId' element={<div className='tarjetaProductos'><ItemDetailContainer /></div>} />
             <Route path='/Acerca' element={<Acerca />} />
             <Route path='/Ubicacion' element={<Ubicacion />}/>
+            <Route path='/checkout' element={<Checkout/>}/>
 
           </Routes>
         </CartProvider>
