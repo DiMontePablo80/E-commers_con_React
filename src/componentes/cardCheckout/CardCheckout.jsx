@@ -1,16 +1,13 @@
 /* eslint-disable react/prop-types */
-import {Card} from 'react-bootstrap'
+import './cardCheckout.css'
 
 const CardCheckout = ({producto}) => {
     return (
-        <Card className='estiloCard' style={{ width: '7rem' }}>
-            <Card.Img variant="top" src={producto.producto.img} />
-            <Card.Body >
-                <Card.Title>{producto.producto.nombre}</Card.Title>
-                <Card.Text>Precio:${producto.producto.precio} x Cantidad:{producto.cantidad}</Card.Text>
-            </Card.Body>
-
-        </Card>
+        <div style={{ width: '10 rem' }}>
+            <img className="imagenCarrito" src={producto.producto.img} />
+            <p>{producto.producto.nombre}</p>
+            <p>Precio:${producto.producto.precio} x Cantidad:{producto.cantidad}</p>
+        </div>
     )
 }
 

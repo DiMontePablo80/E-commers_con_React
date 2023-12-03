@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-
+import './Checkout.css';
 import { useState } from "react";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
@@ -35,14 +35,15 @@ const Checkout = () => {
             items:carro.map((prod)=>({
                 id:prod.producto.id,
                 nombre:prod.producto.nombre,
+                precio:prod.producto.precio,
                 cantidad:prod.cantidad
             })),
             total:calcularTotal(),
             fecha:new Date(),
-            nombre,
-            apellido,
-            telefono,
-            email
+            nombre:nombre,
+            apellido:apellido,
+            telefono:telefono,
+            email:email
         }
         Promise.all(
             orden.items.map(async(productoOrden)=>{
@@ -73,10 +74,10 @@ const Checkout = () => {
     }
     return (
         <>
-            <h1>finalizar Compra</h1>
+            <h1 style={{textAlign:"center"}}>Finalizar Compra</h1>
             <hr/>
             <p>Detalle de la compra:</p>
-            <div className="listaCompra">
+            <div className="listaCheckout">
                 {
                     carro.map((p)=>(
                         <CardCheckout key={p.producto.id} producto={p}/>    
@@ -84,11 +85,11 @@ const Checkout = () => {
                 }
             </div>
             <hr />
-            <p>total de la compra: ${calcularTotal()}</p>
+            <p className='total'>total de la compra: $ {calcularTotal()}</p>
             <hr />
-            <p>formulario de contacto: </p>
-
-            <form onSubmit={manejoDeFormulario}>
+            <h3 style={{textAlign:"center"}}>formulario de contacto: </h3>
+            <div className="formulario">
+                <form onSubmit={manejoDeFormulario}>
                 <div>
                     <label htmlFor="">Nombre:</label>
                     <input type="text" onChange={(e)=>setNombre(e.target.value)} />
@@ -121,6 +122,8 @@ const Checkout = () => {
 
                 
             </form>
+            </div>
+            
 
         </>
     );

@@ -12,12 +12,11 @@ const ItemListContainer = () => {
     
     useEffect(() => {
         setLoading(true)
-        // se instancia base de datos
+        
         const db = getFirestore()
-        //filtrado de los productos
         const filtro=categoria ? query (collection(db,"productos"),where("categoria","==",categoria))
         : collection(db,"productos")
-        //generocion de productos filtrados
+        
         getDocs(filtro)
         .then((res)=>{
             const listaDb = res.docs.map((p)=>{

@@ -1,0 +1,15 @@
+.listaCompra {
+    display: inline-flex;
+}
+
+.imagenCarrito {
+    vertical-align: middle;
+    width: 181px;
+    height: 260px;
+}
+
+.formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
